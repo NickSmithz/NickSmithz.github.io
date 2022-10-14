@@ -1,0 +1,187 @@
+@font-face {
+  font-family: "SanFrancisco"; 
+  src: url("/fonts/SFUIDisplay-Regular.woff") format("truetype"); 
+  font-style: normal; 
+  font-weight: normal;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.intro {
+    width: 95%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    margin: 80px 0;
+}
+
+.intro__descr {
+    text-align: left;
+    font-size: 25px;
+    /* margin-right: 1.5em; */
+    padding: 0 10%;
+    
+}
+
+.intro__descr-hello {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: bold;
+    font-size: 25px;
+    text-transform: uppercase;
+/*     animation: typing 2s steps(22), blink 0.5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: monospace; */
+}
+
+.intro__descr-call {
+    display: block;
+    margin: 0 auto;
+    padding: 1rem 3.5rem;
+}
+
+.intro__descr-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    width: 100%;
+    height: 2em;
+    color: rgb(98, 98, 98);
+    font-size: 25px;
+    background-color: #d2d2d2;
+    border: none;
+    &:hover {
+        transition: ease 1s;
+        background-color: #ecbdc3;
+    }
+}
+
+/* @keyframes typing {
+    from {
+      width: 0
+    }
+  }
+      
+  @keyframes blink {
+    50% {
+      border-color: transparent
+    }
+  } */
+
+.intro__img {
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+    img {
+        float: right;
+        width: 59%;
+        height: auto;
+        margin-right: 14px;
+        display: block;
+        float: left;
+        box-shadow: 3px 3px 3px #ecbdc3;
+    }
+}
+
+.imessage {
+    background-color: #fff;
+    border: 1px solid #e5e5ea;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.25rem;
+    margin: 0 auto 1rem;
+    max-width: 600px;
+    padding: 0.9rem 1.5rem;
+  }
+
+  .imessage p {
+    font-family: "SanFrancisco", sans-serif;
+    border-radius: 1.15rem;
+    line-height: 1.25;
+    max-width: 75%;
+    padding: 0.5rem .875rem;
+    position: relative;
+    word-wrap: break-word;
+  }
+
+  p.from-me {
+    align-self: flex-end;
+    background-color: #248bf5;
+    color: #fff;
+  }
+
+  .imessage p::before,
+  .imessage p::after {
+    bottom: -0.1rem;
+    content: "";
+    height: 1rem;
+    position: absolute;
+  }
+
+  p.from-me::before {
+    border-bottom-left-radius: 0.8rem 0.7rem;
+    border-right: 1rem solid #248bf5;
+    right: -0.35rem;
+    transform: translate(0, -0.1rem);
+  }
+  
+  p.from-me::after {
+    background-color: #fff;
+    border-bottom-left-radius: 0.5rem;
+    right: -40px;
+    transform:translate(-30px, -2px);
+    width: 10px;
+  }
+
+  p.from-them {
+    align-items: flex-start;
+    background-color: #e5e5ea;
+    color: #000;
+  }
+  
+  p.from-them:before {
+    border-bottom-right-radius: 0.8rem 0.7rem;
+    border-left: 1rem solid #e5e5ea;
+    left: -0.35rem;
+    transform: translate(0, -0.1rem);
+  }
+  
+  p.from-them::after {
+    background-color: #fff;
+    border-bottom-right-radius: 0.5rem;
+    left: 20px;
+    transform: translate(-30px, -2px);
+    width: 10px;
+  }
+
+  p.from-me ~ p.from-me {
+    margin: 0.25rem 0 0;
+  }
+  
+  p.from-me ~ p.from-me:not(:last-child) {
+    margin: 0.25rem 0 0;
+  }
+  
+  p.from-me ~ p.from-me:last-child {
+    margin-bottom: 0.5rem;
+  }
+
+  p[class^="from-"].emoji {
+    background: none;
+    font-size: 2.5rem;
+  }
+  
+  p[class^="from-"].emoji::before {
+    content: none;
+  }
+  
+  .no-tail::before {
+    display: none;
+  }

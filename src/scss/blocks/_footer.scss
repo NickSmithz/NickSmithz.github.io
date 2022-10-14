@@ -1,0 +1,29 @@
+a {
+    text-decoration: none;
+    color: black;
+    &:hover {
+        color: black;  
+    }
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 200px;
+    padding: 50px;
+    &__number {
+        img {
+            width: 40px;
+            height: 40px;
+        }
+    }
+    &__socials {
+        font-size: 25px;
+    }
+    .copyright {
+        font-weight: 300;
+        transform: translateX(-50%);
+    }
+}

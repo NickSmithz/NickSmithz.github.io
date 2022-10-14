@@ -1,0 +1,54 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+    height: 100px;
+    width: 100%;
+    background-color: #fff;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    justify-content: space-between;
+    ul {
+        margin-top: 16px;
+    }
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+}
+
+nav ul li {
+    font-size: 20px;
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    a {
+        color: #000 !important; 
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    a:hover {
+        text-decoration: underline;
+        transition: 1s all;
+    }
+}
+
+.photographer_name {
+    display: flex;
+    font-size: 50px;
+    position: relative;
+    margin-right: 55px;
+    a {
+        text-shadow: 1px 1px 2px #000;
+        color: #000;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+}
