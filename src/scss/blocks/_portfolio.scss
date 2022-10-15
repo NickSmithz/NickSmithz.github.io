@@ -1,0 +1,25 @@
+.portfolio {
+    display: grid;
+    margin: auto;
+    grid-template-columns: repeat(4, 2fr);
+    grid-template-rows: repeat(2, 2fr);
+    align-items: center;
+    justify-content: center;
+    gap: 3em;
+}
+
+.portfolio__grid-item {
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    &-img {
+        height: 200px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    &-descr {
+        text-align: center;
+        margin-top: 10px;
+    }
+}
