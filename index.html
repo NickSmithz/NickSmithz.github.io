@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b2118">
+<meta name="description" content="Домашняя программа на 8 недель: силовые тренировки, гребная имитация и гибкость. Интерактивные карточки техники и групп мышц.">
+<title>FORM 08 — Сила, гребля, шпагат</title>
+<style>
+:root{--ink:#101b16;--muted:#718176;--bg:#f2f4ee;--line:#dce5db;--pine:#0b291c;--lime:#c2f374;--emerald:#226e48;--white:#fff;--danger:#ad3e36;--soft:#e5efdf;--r:22px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #6ab56e;outline-offset:3px}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(1230px,calc(100% - 48px));margin-inline:auto}
+header.top{position:sticky;z-index:60;top:0;background:rgba(248,250,245,.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:28px;min-height:72px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px;letter-spacing:-.08em;white-space:nowrap}
+.logobox{display:grid;place-items:center;background:var(--pine);color:var(--lime);width:37px;height:37px;border-radius:12px;font-size:15px;letter-spacing:0}
+.logo span:last-child{font-size:13px;background:var(--lime);border-radius:6px;padding:3px 5px;margin-left:2px}
+.links{display:flex;align-items:center;gap:26px;margin:auto;color:#52675c;font-size:13px;font-weight:750}
+.links a:hover{color:var(--emerald)}
+.navprogress{display:flex;align-items:center;gap:11px;border:1px solid var(--line);border-radius:40px;background:white;padding:7px 8px 7px 13px;font-size:12px;font-weight:800;white-space:nowrap}
+.meter{height:8px;width:86px;border-radius:20px;background:#e1eadf;overflow:hidden}.meter i{height:100%;width:0%;display:block;background:var(--emerald);transition:width .3s}
+.hero{padding:26px 0 0}
+.hero-shell{background:var(--pine);border-radius:29px;min-height:535px;overflow:hidden;display:grid;grid-template-columns:1.07fr .93fr;position:relative}
+.hero-shell:after{content:"";position:absolute;pointer-events:none;inset:0;opacity:.3;background-image:linear-gradient(#fff1 1px,transparent 1px),linear-gradient(90deg,#fff1 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(to right,transparent,#000)}
+.hero-copy{z-index:1;padding:58px 38px 42px 56px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:#cbebc9;border:1px solid #a2cfad61;border-radius:40px;padding:10px 13px;font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:850}
+.pulse{height:7px;width:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px #c2f37432}
+h1{font-size:clamp(47px,5.5vw,83px);line-height:.99;letter-spacing:-.065em;color:#fff;margin:30px 0 21px;font-weight:900}
+h1 em{font-style:normal;color:var(--lime)}
+.hero-copy p{color:#bdd4c4;font-size:15px;line-height:1.7;max-width:515px;margin:0}
+.hero-cta{display:flex;flex-wrap:wrap;gap:11px;margin-top:29px}
+.btn{border:0;border-radius:13px;padding:15px 19px;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:850;font-size:13px}
+.btn.primary{background:var(--lime);color:var(--pine)}.btn.primary:hover{background:#d4ff94}
+.btn.ghost{background:#fff1;border:1px solid #fff3;color:#fff}.btn.ghost:hover{background:#fff2}
+.hero-visual{position:relative;min-height:475px;isolation:isolate;background:linear-gradient(160deg,#0d321f,#19432b)}
+.hero-visual:before{content:"";position:absolute;inset:20px 28px 60px 5px;border-radius:22px;background:url("assets/base.jpg") center/cover no-repeat;filter:saturate(.85) contrast(1.02);box-shadow:0 20px 70px #0005}
+.hero-visual:after{content:"";position:absolute;inset:20px 28px 60px 5px;border-radius:22px;background:linear-gradient(180deg,transparent 40%,#0c2419a8)}
+.visual-tag{position:absolute;z-index:2;right:50px;top:40px;padding:12px 14px;background:#f5fff0;border-radius:12px;font-size:12px;font-weight:850;color:var(--pine);box-shadow:0 12px 35px #0004}
+.visual-badge{position:absolute;bottom:91px;left:30px;z-index:2;background:var(--lime);color:var(--pine);font-size:12px;font-weight:850;padding:11px 17px;border-radius:11px;transform:rotate(-5deg)}
+.hero-stats{position:absolute;bottom:0;left:0;right:0;display:grid;grid-template-columns:repeat(3,1fr);height:64px;z-index:3;background:#133924;border-top:1px solid #41664d}
+.hero-stat{text-align:center;border-right:1px solid #41664d;padding:8px 3px}.hero-stat:last-child{border-right:0}.hero-stat strong{display:block;font-size:20px;color:#fff;line-height:1.1}.hero-stat span{color:#a6c6aa;font-size:10px}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:17px}
+.metrics .metric{background:#fff;border:1px solid var(--line);border-radius:17px;padding:20px 23px;display:flex;align-items:center;gap:17px}
+.metricicon{display:grid;place-items:center;background:#ecf7e3;width:43px;height:43px;border-radius:14px;font-size:18px}
+.metric strong{font-size:15px;display:block}.metric span{color:var(--muted);font-size:12px}
+.section{padding:75px 0 0;scroll-margin-top:85px}
+.hgroup{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:24px;flex-wrap:wrap}
+.kicker{font-size:11px;font-weight:900;letter-spacing:.16em;color:var(--emerald);text-transform:uppercase;margin-bottom:11px}
+h2{font-size:clamp(30px,4vw,45px);line-height:1.05;letter-spacing:-.055em;margin:0;font-weight:900}
+.hint{font-size:13px;line-height:1.6;color:var(--muted);max-width:530px;margin:0}
+.weekpanel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;display:flex;flex-wrap:wrap;align-items:center;gap:22px;justify-content:space-between;margin-bottom:23px}
+.weekpanel-title{display:flex;flex-direction:column;gap:5px}.weekpanel-title strong{font-size:15px}.weekpanel-title small{font-size:12px;color:var(--muted)}
+.weeks{display:flex;gap:7px;flex-wrap:wrap}.week{height:37px;width:37px;border:1px solid var(--line);border-radius:11px;background:#f9fbf7;color:#3c5947;font-weight:850}
+.week.active{background:var(--pine);border-color:var(--pine);color:var(--lime)}
+.daytabs{display:flex;gap:9px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding:0 0 18px;margin:0 0 20px}
+.tab{border:1px solid var(--line);padding:12px 17px;background:#fff;border-radius:13px;color:#53675b;font-weight:850;font-size:13px;display:flex;gap:12px;align-items:center}
+.tab span{font-size:10px;opacity:.68}.tab.active{background:var(--pine);border-color:var(--pine);color:#fff}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:21px}
+.filters{display:flex;gap:7px;flex:1;flex-wrap:wrap}
+.filter{font-size:12px;font-weight:800;border:1px solid var(--line);border-radius:50px;background:#fff;color:#637568;padding:10px 13px;white-space:nowrap}
+.filter.active{color:var(--pine);border-color:#aedc9a;background:var(--lime)}
+.search{border:1px solid var(--line);min-width:220px;background:#fff;border-radius:12px;padding:12px 14px;outline:0;font-size:12px;color:var(--ink);width:220px}
+.daytop{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end;margin:24px 0 20px}
+.daytitle{display:flex;gap:15px;align-items:center}.daynum{background:#d9edcf;color:var(--emerald);font-weight:950;font-size:13px;padding:12px;border-radius:12px}.daytitle h3{font-size:26px;letter-spacing:-.035em;margin:0 0 5px}.daytitle p{margin:0;color:var(--muted);font-size:13px}
+.day-side{font-size:12px;color:var(--muted);background:#fff;border:1px solid var(--line);padding:11px 14px;border-radius:11px}
+.exercise-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}
+.flipcard{height:398px;perspective:1200px;position:relative}
+.flipper{height:100%;width:100%;position:relative;transform-style:preserve-3d;transition:transform .62s cubic-bezier(.2,.75,.25,1)}
+.flipcard.flipped .flipper{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;background:white;border-radius:18px;border:1px solid var(--line);overflow:hidden;backface-visibility:hidden;box-shadow:0 5px 25px #102a1310}
+.front{display:flex;flex-direction:column}
+.imagepane{height:225px;position:relative;overflow:hidden;background:#e2eee0}
+.photo{position:absolute;inset:0;background-image:var(--photo);background-size:205% 205%;background-position:var(--pos);filter:saturate(.83);transition:transform .4s}
+.flipcard:hover .photo{transform:scale(1.055)}
+.imagepane:after{content:"";position:absolute;inset:55% 0 0;background:linear-gradient(transparent,#05170e20);pointer-events:none}
+.typebadge{position:absolute;left:12px;top:12px;padding:7px 9px;background:#fffef3;border-radius:9px;font-size:10px;font-weight:900;color:#346342}
+.done{position:absolute;right:12px;top:12px;width:37px;height:37px;border-radius:11px;border:1px solid #fff8;background:#fff;display:grid;place-items:center;color:#73867b;font-size:18px;z-index:4;transition:.18s}
+.done[data-done="true"]{background:var(--lime);border-color:var(--lime);color:var(--pine)}
+.frontinfo{padding:15px 17px 16px;display:flex;flex:1;flex-direction:column}
+.frontinfo h4{font-size:16px;line-height:1.19;letter-spacing:-.028em;margin:0 0 9px;min-height:38px}
+.rowmeta{display:flex;justify-content:space-between;gap:6px;align-items:center}
+.reps{border-radius:8px;background:#ebf4e7;color:var(--emerald);padding:6px 8px;font-size:11px;font-weight:950;white-space:nowrap}
+.cardcue{font-size:11px;line-height:1.42;color:#728377;margin:9px 0 0;min-height:31px}
+.flip-btn{margin:auto 0 0;text-align:left;border:0;background:none;font-size:11px;font-weight:950;color:var(--emerald);padding:10px 0 0;letter-spacing:.01em}
+.flip-btn:hover{text-decoration:underline}
+.back{transform:rotateY(180deg);background:var(--pine);color:white;padding:22px 20px 18px;display:flex;flex-direction:column}
+.back .small{font-size:10px;letter-spacing:.14em;color:var(--lime);font-weight:900;text-transform:uppercase}
+.back h4{font-size:19px;letter-spacing:-.025em;margin:13px 0 16px}
+.label{font-size:10px;letter-spacing:.07em;font-weight:900;color:#9ecbab;margin:0 0 5px;text-transform:uppercase}
+.back p{font-size:12px;line-height:1.45;margin:0 0 14px;color:#f2fff4}
+.badmistake{border-left:3px solid #ffa18f;background:#fff1;padding:9px 10px;margin-top:auto;border-radius:0 8px 8px 0;color:#ffdbd4;font-size:11px;line-height:1.4}
+.back .flip-btn{color:var(--lime)}
+.empty{background:#fff;border:1px dashed #c2d2c2;padding:35px;border-radius:18px;color:var(--muted);text-align:center}
+.dashgrid{display:grid;grid-template-columns:1.2fr .8fr;gap:19px}
+.dashboard,.guidenote{background:#fff;border:1px solid var(--line);border-radius:20px;padding:27px}
+.dashboard h3,.guidenote h3{margin:0 0 8px;font-size:22px;letter-spacing:-.03em}
+.smallhint{color:var(--muted);font-size:12px;line-height:1.6;margin:0 0 22px}
+.heatrow{display:grid;grid-template-columns:148px 1fr 36px;gap:13px;align-items:center;margin:12px 0}
+.heatrow strong{font-size:12px;font-weight:800}
+.bar{height:11px;border-radius:25px;background:#edf3e8;overflow:hidden}.bar span{display:block;height:100%;background:linear-gradient(90deg,#196d47,#ade974);width:0%;border-radius:25px;transition:width .4s}
+.heatrow b{font-size:11px;text-align:right;color:var(--emerald)}
+.tiprow{display:flex;gap:12px;align-items:start;padding:13px 0;border-bottom:1px solid var(--line)}
+.tiprow:last-child{border-bottom:0}.tipnum{height:27px;width:27px;flex:0 0 27px;border-radius:9px;background:#e9f4e3;display:grid;place-items:center;color:var(--emerald);font-weight:900;font-size:12px}
+.tiprow strong{display:block;font-size:13px;margin-bottom:4px}.tiprow span{display:block;color:var(--muted);font-size:12px;line-height:1.48}
+.timeline{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.phase{padding:20px;border:1px solid var(--line);border-radius:17px;background:#fff;min-height:160px}
+.phase .order{font-weight:900;font-size:12px;color:var(--emerald);background:#e3f3d9;display:inline-block;padding:8px;border-radius:10px}
+.phase h3{font-size:16px;margin:13px 0 8px}.phase p{font-size:12px;color:var(--muted);line-height:1.5;margin:0}
+.banner{background:var(--pine);padding:26px 30px;border-radius:20px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:20px;color:#fff;margin-top:20px}
+.banner h3{font-size:23px;letter-spacing:-.04em;margin:0 0 7px}
+.banner p{color:#afcbb6;margin:0;font-size:12px;line-height:1.6}
+.banner button{border:1px solid #fff3;color:white;background:#fff1;border-radius:10px;padding:12px 15px;font-size:12px;font-weight:800}
+footer{margin-top:80px;background:var(--pine);padding:27px 0;color:#a3c4ad;font-size:12px}
+.footwrap{display:flex;align-items:center;justify-content:space-between;gap:25px;flex-wrap:wrap}
+dialog{border:0;border-radius:19px;max-width:min(95vw,760px);padding:17px;box-shadow:0 25px 100px #0008}
+dialog::backdrop{background:#001d11cc}
+dialog img{max-width:100%;max-height:75vh;object-fit:contain;border-radius:11px}
+.dialogtop{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:12px;font-size:14px;font-weight:900}
+.dialogtop button{height:32px;width:32px;border:0;border-radius:8px;background:#e7efdf;font-size:18px}
+.illustration-link{border:0;background:#f0f5ea;padding:9px 12px;border-radius:10px;font-size:11px;color:var(--emerald);font-weight:850}
+@media(max-width:1160px){.exercise-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero-copy{padding:52px 32px}.links{gap:17px}}
+@media(max-width:900px){.hero-shell{grid-template-columns:1fr}.hero-visual{min-height:350px}.hero-visual:before,.hero-visual:after{inset:5px 30px 62px}.hero-copy{padding:45px 34px 35px}.exercise-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.dashgrid{grid-template-columns:1fr}.timeline{grid-template-columns:repeat(3,1fr)}.links{display:none}}
+@media(max-width:620px){.wrap{width:calc(100% - 24px)}.nav{min-height:65px}.logo{font-size:17px}.navprogress{font-size:11px}.meter{width:48px}.hero{padding-top:10px}.hero-shell{border-radius:22px}.hero-copy{padding:30px 23px 24px}.hero-copy p{font-size:13px}.hero-visual{min-height:290px}.hero-visual:before,.hero-visual:after{inset:4px 18px 58px}.visual-tag{right:30px;top:19px}.visual-badge{left:22px;bottom:80px}.metrics{grid-template-columns:1fr;gap:9px}.metric{padding:14px}.section{padding-top:52px}.hgroup{align-items:start}.weekpanel{padding:16px}.tab{padding:10px 12px}.search{width:100%}.exercise-grid{grid-template-columns:1fr 1fr;gap:10px}.flipcard{height:370px}.imagepane{height:176px}.frontinfo{padding:11px}.frontinfo h4{font-size:13px;min-height:46px}.cardcue{font-size:10px}.typebadge{font-size:9px}.done{width:31px;height:31px}.reps{font-size:10px}.back{padding:13px}.back h4{font-size:15px;margin:8px 0 10px}.back p{font-size:10px;margin-bottom:10px}.badmistake{font-size:10px}.label{font-size:9px}.daytop{grid-template-columns:1fr}.day-side{justify-self:start}.timeline{grid-template-columns:repeat(2,1fr)}.phase{padding:15px}.heatrow{grid-template-columns:100px 1fr 25px;gap:9px}.banner{grid-template-columns:1fr;padding:22px}.navprogress span{display:none}}
+@media(max-width:390px){.exercise-grid{grid-template-columns:1fr}.flipcard{height:370px}.imagepane{height:203px}.back{padding:20px}.back p{font-size:12px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+@media print{header.top,.weekpanel,.toolbar,.daytabs,.flip-btn,.done,.banner button{display:none!important}.flipcard{break-inside:avoid}.back{display:none}.exercise-grid{grid-template-columns:repeat(3,1fr)}.section{padding-top:20px}.hero-visual{display:none}.hero-shell{display:block;min-height:auto}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap nav">
+<a href="#home" class="logo"><span class="logobox">F</span>FORM<span>08</span></a>
+<nav class="links" aria-label="Разделы"><a href="#training">Программа</a><a href="#muscles">Карта мышц</a><a href="#progression">8 недель</a><a href="#rules">Безопасность</a></nav>
+<div class="navprogress" aria-label="Прогресс"><span>Выполнено <b id="countDone">0</b>/<b id="countTotal">0</b></span><div class="meter"><i id="meterFill"></i></div></div>
+</div></header>
+<main id="home">
+<section class="hero"><div class="wrap"><div class="hero-shell">
+<div class="hero-copy">
+<div class="eyebrow"><i class="pulse"></i>Персональная система движения · 8 недель</div>
+<h1>СИЛА.<br>ТЕХНИКА.<br><em>РЕЗУЛЬТАТ.</em></h1>
+<p>Три силовых тренировки в неделю, работа с резиной без ручек, гребная координация и гибкость. Реалистичные демонстрации, подсказки, карта мышц и личный прогресс в одном месте.</p>
+<div class="hero-cta"><a class="btn primary" href="#training">Открыть тренировки ↗</a><a class="btn ghost" href="#muscles">Какие мышцы работают ↗</a></div>
+</div>
+<div class="hero-visual" role="img" aria-label="Фотоинструкция с демонстрацией упражнений"><div class="visual-tag">НАБОР МАССЫ · ОФП</div><div class="visual-badge">START → FINISH</div>
+<div class="hero-stats"><div class="hero-stat"><strong>03</strong><span>ДНЯ В НЕДЕЛЮ</span></div><div class="hero-stat"><strong>08</strong><span>НЕДЕЛЬ</span></div><div class="hero-stat"><strong>100%</strong><span>ДОМА</span></div></div></div>
+</div>
+<div class="metrics"><div class="metric"><div class="metricicon">🏋</div><div><strong>Сила и мышцы</strong><span>Ноги, спина, грудь, плечи, пресс</span></div></div><div class="metric"><div class="metricicon">↗</div><div><strong>Гребной ритм</strong><span>Ноги → корпус → руки</span></div></div><div class="metric"><div class="metricicon">◉</div><div><strong>Контроль и гибкость</strong><span>Продольный и поперечный шпагат</span></div></div></div>
+</div></section>
+
+<section id="training" class="section"><div class="wrap">
+<div class="hgroup"><div><div class="kicker">01 / ТРЕНИРОВКИ</div><h2>Твой план действий</h2></div><p class="hint">Выбери неделю и день. Нажми карточку, чтобы увидеть основные и дополнительные мышцы. Галочка отмечает выполнение — результат сохраняется в этом браузере.</p></div>
+<div class="weekpanel"><div class="weekpanel-title"><strong>Текущая неделя: <span id="weekLabel">1</span> / 8</strong><small id="phaseLabel">Адаптация · освоение техники</small></div><div class="weeks" id="weekButtons" role="group" aria-label="Выбор недели"></div></div>
+<div class="daytabs" id="dayButtons" role="tablist" aria-label="Дни тренировок"></div>
+<div class="toolbar"><div id="filters" class="filters" aria-label="Фильтр по мышцам"></div><input class="search" id="search" type="search" autocomplete="off" placeholder="⌕ Найти упражнение..." aria-label="Поиск по упражнениям"></div>
+<div id="trainingContent" aria-live="polite"></div>
+</div></section>
+
+<section id="muscles" class="section"><div class="wrap">
+<div class="hgroup"><div><div class="kicker">02 / АНАЛИТИКА</div><h2>Карта мышечной нагрузки</h2></div><p class="hint">Ориентировочный объём прямых силовых и статических подходов за неделю. Подходы с участием нескольких мышц могут учитываться более чем в одной группе.</p></div>
+<div class="dashgrid"><div class="dashboard"><h3>Распределение нагрузки</h3><p class="smallhint">Подсчёт по основным мышечным группам силовых упражнений; растяжка и технические гребные движения не включены.</p><div id="muscleChart"></div></div>
+<div class="guidenote" id="rules"><h3>Перед каждой тренировкой</h3><p class="smallhint">6–8 минут разминки, затем лёгкая гребная имитация, силовая часть и растяжка после неё.</p>
+<div class="tiprow"><b class="tipnum">01</b><div><strong>Проверь трубчатую резину</strong><span>Осмотри на порезы. Наступай на середину в нескользящей обуви, не направляй натяжение к лицу.</span></div></div>
+<div class="tiprow"><b class="tipnum">02</b><div><strong>Техника важнее повторений</strong><span>Работай без рывков. Оставляй примерно 1–3 технически возможных повторения в запасе.</span></div></div>
+<div class="tiprow"><b class="tipnum">03</b><div><strong>Шпагат без форсирования</strong><span>Только мягкое натяжение, никаких пружинящих движений и резкой боли.</span></div></div>
+<div class="tiprow"><b class="tipnum">04</b><div><strong>Подписи важнее ИИ-изображений</strong><span>Иллюстрации обучающие и могут содержать неточности. При сомнении смотри текст техники.</span></div></div>
+</div></div></div></section>
+
+<section id="progression" class="section"><div class="wrap"><div class="hgroup"><div><div class="kicker">03 / ПРОГРЕСС</div><h2>План на 8 недель</h2></div></div>
+<div class="timeline"><div class="phase"><b class="order">01—02</b><h3>Адаптация</h3><p>По 2 рабочих подхода; дополнительные упражнения на пресс начинай с одного.</p></div>
+<div class="phase"><b class="order">03—04</b><h3>Основной объём</h3><p>Переходи на указанные в карточках подходы, сохраняй плавную технику.</p></div>
+<div class="phase"><b class="order">05—06</b><h3>Усложнение</h3><p>Повышай повторения или аккуратно увеличивай сопротивление.</p></div>
+<div class="phase"><b class="order">07</b><h3>Закрепление</h3><p>Сохраняй рабочий объём, оставляя 1–3 повтора в запасе.</p></div>
+<div class="phase"><b class="order">08</b><h3>Облегчение</h3><p>Сократи силовой объём примерно вдвое для восстановления.</p></div></div>
+<div class="banner"><div><h3>Рост мышц — это также питание и сон.</h3><p>Белок примерно 125–155 г/сутки · умеренный профицит +250–350 ккал · сон 7–9 часов. Ориентир 82–85 кг — долгосрочная цель, не обещание за восемь недель.</p></div><button id="resetProgress" type="button">Сбросить отметки этой недели ↺</button></div>
+</div></section>
+</main>
+<footer><div class="wrap footwrap"><div><b style="color:#e7f6e5">FORM 08</b> · Сила · Гребной ритм · Гибкость</div><div>Сайт работает без сервера · Прогресс хранится в браузере</div></div></footer>
+<dialog id="photoDialog"><div class="dialogtop"><span id="photoTitle">Иллюстрация упражнения</span><button id="closeDialog" type="button" aria-label="Закрыть окно">×</button></div><img id="fullPhoto" alt="Обучающая фотоинструкция"><p class="smallhint" style="margin:10px 0 0">Надписи внутри ИИ-изображений могут быть неточными. Ориентируйся на текст карточки.</p></dialog>
+<script>
+"use strict";
+var images={
+base:"assets/base.jpg",assist:"assets/assist.jpg",core:"assets/core.jpg",friday:"assets/friday.jpg",
+stretch_a:"assets/stretch_a.jpg",stretch_b:"assets/stretch_b.jpg",stretch_c:"assets/stretch_c.jpg",moves_extra:"assets/moves_extra.jpg",errors:"assets/errors.jpg"
+};
+var quads={tl:"left top",tr:"right top",bl:"left bottom",br:"right bottom"};
+var groups=[
+["legs","Квадрицепсы"],["glutes","Ягодицы"],["hams","Задняя поверхность бедра"],["back","Спина"],
+["chest","Грудь"],["shoulders","Плечи"],["arms","Руки"],["core","Пресс / кор"],["calves","Икры"]
+];
+function ex(id,title,sets,type,tags,main,extra,cue,error,photo,count){
+return {id:id,title:title,sets:sets,type:type,tags:tags,main:main,extra:extra,cue:cue,error:error,photo:photo,count:count||0};
+}
+var programs=[
+{key:"mon",label:"ПОНЕДЕЛЬНИК",title:"Сила A",subtitle:"Ноги · Спина · Грудь · Пресс",focus:"Гребной цикл без резины → силовая → продольная растяжка",items:[
+ex("dry","Сухой гребной цикл","2 × 8–10","Гребля",["row","legs","back"],"Квадрицепсы, ягодичные, кор — координация","Спина, бицепсы","Разгибай ноги → таз → руки","Не начинай движение руками","stretch_a:tr"),
+ex("squat","Приседание с резиной","3 × 10–15","Сила",["legs","glutes"],"Квадрицепсы, ягодичные","Приводящие, стабилизаторы корпуса","Резина под стопами, концы у плеч","Колени заваливаются внутрь","base:tl",3),
+ex("row","Тяга резины в наклоне","3 × 10–15","Сила",["back","arms"],"Широчайшие, ромбовидные, средняя трапеция","Бицепсы, задние дельты","Отведи таз назад, тяни локти к поясу","Округление спины и рывки","base:tr",3),
+ex("push","Отжимания от пола","3 × 6–15","Сила",["chest","arms"],"Грудные мышцы, трицепсы","Передние дельты, мышцы живота","Тело прямое, резина НЕ нужна","Провисание таза","base:bl",3),
+ex("rdl","Румынская тяга с резиной","3 × 10–15","Сила",["hams","glutes"],"Задняя поверхность бедра, ягодичные","Разгибатели спины, мышцы корпуса","Таз назад, слегка согнутые колени","Сгибать поясницу вместо таза","base:br",3),
+ex("fly","Разведения рук в наклоне","2 × 12–20","Сила",["shoulders","back"],"Задние дельты","Ромбовидные, средняя трапеция","Мягкие локти, разводи руки в стороны","Поднимать плечи к ушам","assist:tl",2),
+ex("deadbugA","Dead Bug","2 × 10 / сторона","Пресс",["core"],"Прямая, поперечная и косые мышцы живота","Сгибатели бедра","Поясница прижата к полу","Поясница отрывается","assist:tr",2),
+ex("revcrunch","Обратные скручивания","2 × 12–15","Пресс",["core"],"Прямая мышца живота","Косые мышцы, сгибатели бедра","Плавно подкручивай таз","Размахивать ногами вместо скручивания",null,2),
+ex("hipflex","Выпад на колене","2 × 25–35 с / нога","Растяжка",["stretch"],"Растяжка сгибателей бедра","Передняя поверхность бедра задней ноги","Подкрути таз и мягко подай вперёд","Сильный прогиб в пояснице","stretch_a:bl"),
+ex("halfsplit","Полушпагат","2 × 25–35 с / нога","Растяжка",["stretch"],"Растяжка задней поверхности бедра","Икроножные мышцы","Наклоняйся от тазобедренных суставов","Округлять спину","stretch_a:br"),
+ex("butterfly","«Бабочка»","2 × 30–40 с","Растяжка",["stretch"],"Растяжка приводящих мышц бедра","Подвижность тазобедренных суставов","Соедини подошвы, сядь ровно","Давить руками на колени","stretch_b:tl")
+]},
+{key:"wed",label:"СРЕДА",title:"Сила B",subtitle:"Плечи · Ноги · Руки · Кор",focus:"Гребная имитация с резиной → силовая → поперечная растяжка",items:[
+ex("rowstanding","Гребной цикл с резиной","2 × 6–8","Гребля",["row","legs","back"],"Квадрицепсы, ягодичные, мышцы спины","Пресс, бицепсы","Из полуприседа: ноги → таз → руки","Рывок тугой резиной","stretch_b:tr"),
+ex("lunge","Обратные выпады","3 × 8–12 / нога","Сила",["legs","glutes"],"Квадрицепсы, ягодичные","Задняя поверхность бедра, кор","Шаг назад, колено в линии носка","Завал колена внутрь","assist:bl",3),
+ex("rowbelt","Тяга резины к поясу","3 × 10–15","Сила",["back","arms"],"Широчайшие, ромбовидные","Бицепсы, задние дельты","Тяни к поясу, плечи не поднимай","Круглая спина","base:tr",3),
+ex("pike","Отжимания «уголком»","3 × 6–12","Сила",["shoulders","arms"],"Передние дельты, трицепсы","Верх грудных мышц, трапеции","Таз высоко, опускай голову между ладонями","Превращать движение в обычные отжимания","assist:br",3),
+ex("bridge","Ягодичный мост на одной ноге","3 × 10–15 / нога","Сила",["glutes"],"Большие ягодичные","Задняя поверхность бедра, кор","Поднимай таз без прогиба поясницы","Перекос таза","core:tl",3),
+ex("curl","Сгибания рук с резиной","2 × 10–15","Сила",["arms"],"Бицепсы, плечевая мышца","Предплечья","Локти остаются около туловища","Раскачивание корпусом","core:tr",2),
+ex("calf","Подъёмы на носки","3 × 15–25","Сила",["calves"],"Икроножные, камбаловидные мышцы","Стабилизаторы голеностопа","Поднимайся высоко, опускайся плавно","Пружинить","core:bl",3),
+ex("sideplank","Боковая планка","2 × 30–40 с / сторона","Пресс",["core"],"Косые мышцы живота, квадратная мышца поясницы","Поперечная мышца живота, ягодичные","Локоть под плечом, таз удерживай высоко","Провисающий таз","core:br",2),
+ex("hollow","Hollow Body Hold","2 × 15–25 с","Пресс",["core"],"Прямая и поперечная мышцы живота","Сгибатели бедра","Прижимай поясницу, рёбра держи собранными","Прогибать поясницу",null,2),
+ex("frog","«Лягушка»","2 × 20–30 с","Растяжка",["stretch"],"Растяжка приводящих мышц","Тазобедренные суставы","Плавно разводи колени","Двигаться через боль в паху","stretch_b:bl"),
+ex("fold","Широкая складка сидя","2 × 25–35 с","Растяжка",["stretch"],"Приводящие и задняя поверхность бедра","Мышцы голени","Наклон от таза, длинная спина","Круглая спина","stretch_b:br"),
+ex("ninety","Переходы 90/90","2 × 6 / сторона","Мобильность",["stretch"],"Мышцы-ротаторы бедра","Ягодичные, мышцы корпуса","Меняй стороны под контролем","Резкие движения коленями","stretch_c:tl")
+]},
+{key:"fri",label:"ПЯТНИЦА",title:"Сила C",subtitle:"Всё тело · Верх спины · Пресс",focus:"Тяга сидя → силовая → оба вида шпагата",items:[
+ex("seatedrow","Тяга резины сидя","2 × 10–12","Гребля",["row","back"],"Широчайшие, ромбовидные, трапеции","Бицепсы, кор","Тяни к нижним рёбрам, пауза 1–2 с","Неустойчивая фиксация под подошвами","stretch_c:tr"),
+ex("bulg","Болгарский сплит-присед","3 × 8–12 / нога","Сила",["legs","glutes"],"Квадрицепсы, ягодичные","Приводящие, кор","Передняя нога работает, задняя на опоре","Колено внутрь; неустойчивая скамья","friday:tl",3),
+ex("rowwide","Тяга резины с широкими локтями","3 × 10–15","Сила",["back","shoulders"],"Ромбовидные, средняя трапеция, задние дельты","Широчайшие, бицепсы","Локти чуть в стороны, тяни выше пояса","Тянуть к шее и округлять спину","friday:tr",3),
+ex("pausepush","Отжимания с паузой","3 × 6–12","Сила",["chest","arms"],"Грудные мышцы, трицепсы","Передние дельты, пресс","Остановись на секунду у пола","Провисание корпуса","friday:bl",3),
+ex("rdlC","Румынская тяга с резиной","3 × 10–15","Сила",["hams","glutes"],"Задняя поверхность бедра, ягодичные","Разгибатели спины, кор","Опускайся медленно, разгибай таз","Тянуть поясницей","base:br",3),
+ex("ohpress","Жим резины над головой","2 × 8–12","Сила",["shoulders","arms"],"Передние и средние дельты","Трицепсы, мышцы корпуса","Резина под стопами, не прогибайся","Переразгибание поясницы","friday:br",2),
+ex("narrowpush","Узкие отжимания","2 × 6–12","Сила",["chest","arms"],"Трицепсы, грудные мышцы","Передние дельты, пресс","Ладони немного уже плеч","Ладони слишком близко и боль в кистях","stretch_a:tl",2),
+ex("deadbugC","Dead Bug","2 × 10 / сторона","Пресс",["core"],"Прямая и поперечная мышцы живота","Сгибатели бедра","Работай разноимёнными рукой и ногой","Отрывать поясницу","assist:tr",2),
+ex("crunch","Классические скручивания","2 × 12–20","Пресс",["core"],"Прямая мышца живота","Косые мышцы как стабилизаторы","Слегка поднимай лопатки, не тяни шею","Рывок шеей или руками",null,2),
+ex("frontsplit","Подготовка к продольному шпагату","2 × 15–25 с / нога","Растяжка",["stretch"],"Сгибатели бедра задней ноги, задняя поверхность передней","Мышцы таза","Руки на опоре, мягкая амплитуда","Принудительно садиться через боль","stretch_c:bl"),
+ex("middlesplit","Подготовка к поперечному шпагату","2 × 15–25 с","Растяжка",["stretch"],"Приводящие мышцы бедра","Тазобедренные суставы","Опирайся руками, разводи ноги постепенно","Резко съезжать вниз","stretch_c:br"),
+ex("figure4","Растяжка 90/90","2 × 25–30 с / сторона","Растяжка",["stretch"],"Ягодичные и глубокие ротаторы бедра","Тазобедренные суставы","Сохраняй ровный таз и длинную спину","Крутить колено через боль","moves_extra:tl")
+]}
+];
+var filters=[["all","Все"],["legs","Ноги"],["glutes","Ягодицы"],["back","Спина"],["chest","Грудь"],["shoulders","Плечи"],["arms","Руки"],["core","Пресс"],["row","Гребля"],["stretch","Растяжка"]];
+var activeDay="all",activeFilter="all",activeWeek=1,search="";
+var totalItems=programs.reduce(function(n,d){return n+d.items.length},0);
+function loadWeek(n){try{return JSON.parse(localStorage.getItem("form08_w"+n)||"{}")}catch(e){return {}}}
+function saveWeek(n,value){try{localStorage.setItem("form08_w"+n,JSON.stringify(value))}catch(e){}}
+var completion=loadWeek(activeWeek);
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function init(){
+document.getElementById("countTotal").textContent=totalItems;
+document.getElementById("weekButtons").innerHTML=Array.from({length:8},function(_,i){return '<button class="week'+(i===0?' active':'')+'" type="button" data-week="'+(i+1)+'">'+(i+1)+'</button>'}).join("");
+document.getElementById("dayButtons").innerHTML='<button class="tab active" data-day="all" role="tab" aria-selected="true">Все дни <span>03</span></button>'+programs.map(function(d){return '<button class="tab" data-day="'+d.key+'" role="tab" aria-selected="false">'+d.label+' <span>'+d.items.length+'</span></button>'}).join("");
+document.getElementById("filters").innerHTML=filters.map(function(f){return '<button type="button" class="filter'+(f[0]==="all"?" active":"")+'" data-filter="'+f[0]+'">'+f[1]+'</button>'}).join("");
+document.getElementById("weekButtons").addEventListener("click",function(e){var b=e.target.closest("[data-week]");if(!b)return;activeWeek=Number(b.dataset.week);completion=loadWeek(activeWeek);document.querySelectorAll("[data-week]").forEach(function(x){x.classList.toggle("active",Number(x.dataset.week)===activeWeek)});document.getElementById("weekLabel").textContent=activeWeek;document.getElementById("phaseLabel").textContent=activeWeek<=2?"Адаптация · освоение техники":activeWeek<=4?"Основной объём":activeWeek<=6?"Прогрессия нагрузки":activeWeek===7?"Закрепление":"Облегчённая неделя";render()});
+document.getElementById("dayButtons").addEventListener("click",function(e){var b=e.target.closest("[data-day]");if(!b)return;activeDay=b.dataset.day;document.querySelectorAll("[data-day]").forEach(function(x){var yes=x===b;x.classList.toggle("active",yes);x.setAttribute("aria-selected",yes?"true":"false")});render()});
+document.getElementById("filters").addEventListener("click",function(e){var b=e.target.closest("[data-filter]");if(!b)return;activeFilter=b.dataset.filter;document.querySelectorAll("[data-filter]").forEach(function(x){x.classList.toggle("active",x===b)});render()});
+document.getElementById("search").addEventListener("input",function(e){search=e.target.value.toLocaleLowerCase("ru");render()});
+document.getElementById("trainingContent").addEventListener("click",function(e){
+var done=e.target.closest("[data-check]");if(done){e.stopPropagation();var id=done.dataset.check;completion[id]=!completion[id];saveWeek(activeWeek,completion);render();return;}
+var zoom=e.target.closest("[data-zoom]");if(zoom){e.stopPropagation();var key=zoom.dataset.zoom;var title=zoom.dataset.title;document.getElementById("photoTitle").textContent=title;document.getElementById("fullPhoto").src=images[key];var dg=document.getElementById("photoDialog");if(typeof dg.showModal==="function")dg.showModal();return;}
+var trigger=e.target.closest("[data-flip]");if(trigger){var card=trigger.closest(".flipcard");card.classList.toggle("flipped");trigger.setAttribute("aria-expanded",card.classList.contains("flipped")?"true":"false");}
+});
+document.getElementById("closeDialog").addEventListener("click",function(){document.getElementById("photoDialog").close()});
+document.getElementById("photoDialog").addEventListener("click",function(e){if(e.target===this)this.close()});
+document.getElementById("resetProgress").addEventListener("click",function(){if(confirm("Сбросить отметки выбранной недели?")){completion={};saveWeek(activeWeek,completion);render()}});
+buildChart();render();
+}
+function tagText(type){return type==="Сила"?"СИЛА":type==="Пресс"?"ПРЕСС":type==="Гребля"?"ГРЕБЛЯ":"МОБИЛЬНОСТЬ"}
+function buildCard(o){
+var pic="",z="";
+if(o.photo){var ss=o.photo.split(":");pic='style="--photo:url('+images[ss[0]]+');--pos:'+quads[ss[1]]+'"';z='<button type="button" class="illustration-link" data-zoom="'+ss[0]+'" data-title="'+esc(o.title)+'">Открыть фото ↗</button>'}
+else {pic='style="--photo:linear-gradient(140deg,#d2e9ce,#9fd5aa);--pos:center"';z='<span style="font-size:11px;color:#557c5b">Техника — в описании</span>'}
+return '<article class="flipcard" data-id="'+o.id+'"><div class="flipper">'+
+'<div class="face front"><div class="imagepane"><div class="photo" '+pic+'></div><span class="typebadge">'+tagText(o.type)+'</span><button type="button" class="done" data-check="'+o.id+'" data-done="'+(!!completion[o.id])+'" aria-label="'+(completion[o.id]?"Убрать отметку":"Отметить выполненным")+'">'+(completion[o.id]?"✓":"○")+'</button></div>'+
+'<div class="frontinfo"><h4>'+esc(o.title)+'</h4><div class="rowmeta"><span class="reps">'+esc(o.sets)+'</span>'+z+'</div><p class="cardcue">'+esc(o.cue)+'</p><button type="button" class="flip-btn" data-flip aria-expanded="false">Какие мышцы работают →</button></div></div>'+
+'<div class="face back"><div class="small">Анатомия движения</div><h4>'+esc(o.title)+'</h4><div class="label">Основная нагрузка</div><p>'+esc(o.main)+'</p><div class="label">Дополнительно</div><p>'+esc(o.extra)+'</p><div class="badmistake"><b>✕ Частая ошибка:</b> '+esc(o.error)+'</div><button type="button" class="flip-btn" data-flip aria-expanded="true">← Вернуться к упражнению</button></div>'+
+'</div></article>';
+}
+function matches(o){return (activeFilter==="all"||o.tags.indexOf(activeFilter)!==-1)&&(!search||(o.title+" "+o.main+" "+o.extra+" "+o.cue).toLocaleLowerCase("ru").includes(search))}
+function render(){
+var frag="";var shown=0;
+programs.forEach(function(day,idx){if(activeDay!=="all"&&activeDay!==day.key)return;var items=day.items.filter(matches);if(items.length===0)return;shown+=items.length;
+frag+='<div class="daytop"><div class="daytitle"><span class="daynum">0'+(idx+1)+'</span><div><h3>'+day.title+' <small style="color:#90a197;font-size:13px;letter-spacing:0">'+day.label+'</small></h3><p>'+day.subtitle+'</p></div></div><div class="day-side">'+day.focus+'</div></div>'+
+'<div class="exercise-grid">'+items.map(buildCard).join("")+'</div>';
+});
+document.getElementById("trainingContent").innerHTML=frag||'<div class="empty">Ничего не найдено. Измени фильтр или поисковый запрос.</div>';
+var done=Object.keys(completion).filter(function(k){return !!completion[k]}).length;document.getElementById("countDone").textContent=done;document.getElementById("meterFill").style.width=Math.round(done/totalItems*100)+"%";
+}
+function buildChart(){
+var totals={};groups.forEach(function(x){totals[x[0]]=0});
+programs.forEach(function(d){d.items.forEach(function(o){if(!o.count)return;o.tags.forEach(function(t){if(totals[t]!==undefined)totals[t]+=o.count})})});
+var max=Math.max.apply(null,Object.values(totals));
+document.getElementById("muscleChart").innerHTML=groups.map(function(g){var n=totals[g[0]];return '<div class="heatrow"><strong>'+g[1]+'</strong><div class="bar"><span style="width:'+Math.max(6,Math.round(n/max*100))+'%"></span></div><b>'+n+'</b></div>'}).join("");
+}
+init();
+</script>
+</body>
+</html>
